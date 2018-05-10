@@ -13,24 +13,28 @@
 <br>
 
 <div class='row'>
+
     <h1>
         <center>Cerere student reprezentant</center>
     </h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit"/>
-    </form>
     <hr>
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li
-                {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
-        </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+    <div class="col-sm-6 text-left">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-primary" value="Submit"/>
+        </form>
+        <hr>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li
+                    {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
 </div>
 
 {% endblock content %}
