@@ -8,13 +8,15 @@ from pagina_web.views import (
     ListApplicantsView,
     ApplicantDetailsView,
     response_application,
-    redirect_home
+    redirect_home,
+    change_password
 )
 
 urlpatterns = [
     url(r'^$', redirect_home, name="home"),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': 'web_page:login'}, name='logout'),
+    url(r'^change_password/$', change_password, name='change_password'),
     url(r'^developers/$', AboutView.as_view(), name="developers_details"),
     url(r'^application/$', ApplicationEnrollmentView.as_view(), name="application_enrollment"),
     url(r'^applicants/$', ListApplicantsView.as_view(), name="list_applicants"),
