@@ -1,7 +1,8 @@
 from django.contrib.auth.base_user import BaseUserManager
-from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
+
+from pagina_web.models import User
 
 
 def send_email_application_enrollement(student_id, first_name, last_name, email, domain):
@@ -19,10 +20,9 @@ def send_email_application_enrollement(student_id, first_name, last_name, email,
 
 
 def register_new_student(student, domain):
-    try:
+    # try:
         generate_password = BaseUserManager().make_random_password(length=6)
         new_student = User()
-        new_student.username = student.first_name + student.last_name[:1]
         new_student.first_name = student.first_name
         new_student.last_name = student.last_name
         new_student.email = student.email
@@ -43,8 +43,8 @@ def register_new_student(student, domain):
         message = render_to_string('emails/email_applicant_accepted.html', content)
         send_email = EmailMessage(subject, message, to=[to_email])
         send_email.send()
-    except:
-        pass
+    # except:
+    #     pass
 
 
 def student_rejected(student, domain):
