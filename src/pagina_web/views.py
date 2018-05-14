@@ -9,7 +9,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import TemplateView, FormView, ListView, DetailView
 
 from pagina_web.forms import ApplicationEnrollmentForm, FrequentlyAskedQuestionsForm
-from pagina_web.models import ApplicationEnrollment, FaqCategory, FrequentlyAskedQuestions
+from pagina_web.models import ApplicationEnrollment, FaqCategory, FrequentlyAskedQuestions, User
 from pagina_web.utils import send_email_application_enrollement, register_new_student, student_rejected
 
 
@@ -19,6 +19,16 @@ def redirect_home(request):
 
 class AboutView(TemplateView):
     template_name = "developers_details.html"
+
+
+class UserProfileView(TemplateView):
+    template_name = "user_profile.html"
+    model = User
+
+    def get_context_data(self, **kwargs):
+        context = super(UserProfileView, self).get_context_data(**kwargs)
+        context['object'] = self.model.objects.get(pk=self.request.user.id)
+        return context
 
 
 class HomePageView(TemplateView):
