@@ -27,5 +27,12 @@ class ApplicationEnrollmentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ApplicationEnrollment, ApplicationEnrollmentAdmin)
+
 admin.site.register(FaqCategory)
-admin.site.register(FrequentlyAskedQuestions)
+
+
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ('faq_category', 'question')
+
+
+admin.site.register(FrequentlyAskedQuestions, FAQAdmin)
