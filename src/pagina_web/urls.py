@@ -9,7 +9,12 @@ from pagina_web.views import (
     ApplicantDetailsView,
     response_application,
     redirect_home,
-    change_password
+    change_password,
+    ListFaqCategoryView,
+    FrequentlyAskedQuestionsView,
+    edit_faq,
+    delete_faq,
+    AddFAQView
 )
 
 urlpatterns = [
@@ -22,5 +27,10 @@ urlpatterns = [
     url(r'^applicants/$', ListApplicantsView.as_view(), name="list_applicants"),
     url(r'^(?P<pk>.+)/applicant/details/$', ApplicantDetailsView.as_view(), name="applicant_details"),
     url(r'^response/(?P<pk>.+)/(?P<response_id>.+)/$', response_application, name="response_application"),
+    url(r'^faq_categories/$', ListFaqCategoryView.as_view(), name="faq_categories"),
+    url(r'^(?P<pk>.+)/faq/$', FrequentlyAskedQuestionsView.as_view(), name="frequently_asked_questions"),
+    url(r'^(?P<pk>.+)/faq/edit/$', edit_faq, name="edit_faq"),
+    url(r'^(?P<pk>.+)/faq/delete/$', delete_faq, name="delete_faq"),
+    url(r'^/faq/add/$', AddFAQView.as_view(), name="add_faq"),
     url(r'^home/$', HomePageView.as_view(), name="home_page"),
 ]
