@@ -18,7 +18,7 @@ class ApplicationEnrollmentForm(forms.ModelForm):
 class FrequentlyAskedQuestionsForm(forms.ModelForm):
     class Meta:
         model = FrequentlyAskedQuestions
-        fields = ["faq_category", "question", "answer"]
+        fields = ["question", "answer"]
 
     def __init__(self, *args, **kwargs):
         super(FrequentlyAskedQuestionsForm, self).__init__(*args, **kwargs)

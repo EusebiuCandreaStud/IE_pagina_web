@@ -85,7 +85,7 @@ def change_password(request):
             user = form.save()
             update_session_auth_hash(request, user)  # Important!
             messages.success(request, 'Your password was successfully updated!')
-            return redirect('change_password')
+            return redirect('web_page:login')
         else:
             messages.error(request, 'Please correct the error below.')
     else:
@@ -110,6 +110,11 @@ class FrequentlyAskedQuestionsView(ListView):
     def get_queryset(self):
         query = self.model.objects.filter(faq_category=self.kwargs.get('pk'))
         return query
+
+    def get_context_data(self, **kwargs):
+        context = super(FrequentlyAskedQuestionsView, self).get_context_data(**kwargs)
+        context['category_pk'] = self.kwargs.get('pk')
+        return context
 
 
 def edit_faq(request, pk):
@@ -142,7 +147,8 @@ class AddFAQView(FormView):
     form_class = FrequentlyAskedQuestionsForm
 
     def form_valid(self, form):
-        form.save()
-        form.save()
+        faq = form.save(commit=False)
+        faq.faq_category_id = self.kwargs.get('pk')
+        faq.save()
         messages.success(self.request, 'Successfully added.')
-        return redirect('web_page:faq_categories')
+        return redirect('web_page:frequently_asked_questions', pk=self.kwargs.get('pk'))
