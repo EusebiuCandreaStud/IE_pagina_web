@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 from pagina_web.views import (
@@ -36,3 +38,6 @@ urlpatterns = [
     url(r'^(?P<pk>.+)/faq/delete/$', delete_faq, name="delete_faq"),
     url(r'^home/$', HomePageView.as_view(), name="home_page"),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
