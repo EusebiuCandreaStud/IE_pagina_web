@@ -186,16 +186,14 @@ def edit_user_profile(request):
 
 def edit_user_photo_profile(request):
     user = get_object_or_404(Profile, id=request.user.pk)
-
     if request.method == "POST":
-        form = UserPhotoProfileForm(request.POST, instance=user)
+        form = UserPhotoProfileForm(request.POST, request.FILES)
         if form.is_valid():
-            user = form.save(commit=False)
             user.avatar = form.cleaned_data["avatar"]
             user.save()
             return redirect('web_page:user_profile')
     else:
-        form = UserPhotoProfileForm(instance=user)
+        form = UserPhotoProfileForm()
     template = "edit_user_photo_profile.html"
     user = User.objects.get(pk=request.user.id)
     context = {

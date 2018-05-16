@@ -82,7 +82,7 @@
                             <div class="bot-border"></div>
 
                             <div class="col-sm-5 col-xs-6 tital ">Tip studiu:</div>
-                            <div class="col-sm-7"> {{object.profile.study_type}}</div>
+                            <div class="col-sm-7"> {{object.profile.get_study_type_display}}</div>
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
 
@@ -97,7 +97,7 @@
                             <div class="bot-border"></div>
 
                             <div class="col-sm-5 col-xs-6 tital ">An de studiu:</div>
-                            <div class="col-sm-7"> {{object.profile.year_of_study}}</div>
+                            <div class="col-sm-7"> {{object.profile.get_year_of_study_display}}</div>
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
 
@@ -121,6 +121,8 @@ $(function() {
         $('#profile-image-upload').click();
     });
 });
+
+
 
 
 

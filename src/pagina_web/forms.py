@@ -38,10 +38,8 @@ class UserProfileForm(forms.ModelForm):
             field.widget.attrs['class'] = 'form-control'
 
 
-class UserPhotoProfileForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ["avatar"]
+class UserPhotoProfileForm(forms.Form):
+    avatar = forms.ImageField()
 
     def __init__(self, *args, **kwargs):
         super(UserPhotoProfileForm, self).__init__(*args, **kwargs)
