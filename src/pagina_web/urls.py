@@ -25,7 +25,7 @@ from pagina_web.views import (
 urlpatterns = [
     url(r'^$', redirect_home, name="home"),
     url(r'^user/login/$', auth_views.login, name='login'),
-    url(r'^user/logout/$', auth_views.logout, {'next_page': 'web_page:login'}, name='logout'),
+    url(r'^user/logout/$', auth_views.logout, {'next_page': 'web_page:home_page'}, name='logout'),
     url(r'^user/change_password/$', change_password, name='change_password'),
     url(r'^user/profile/$', UserProfileView.as_view(), name="user_profile"),
     url(r'^user/edit/profile/$', edit_user_profile, name="edit_user_profile"),
