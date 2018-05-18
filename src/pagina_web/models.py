@@ -117,6 +117,7 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 class ApplicationEnrollment(models.Model):
+    avatar = models.ImageField(upload_to='avatar/', default='avatar/original.jpg', blank=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField(unique=True)
@@ -135,6 +136,10 @@ class ApplicationEnrollment(models.Model):
 
     def __str__(self):
         return self.email
+
+    def get_full_name(self):
+        full_name = '%s %s' % (self.first_name, self.last_name)
+        return full_name.strip()
 
     def get_absolute_url(self):
         return reverse('web_page:applicant_details', kwargs={'pk': self.pk})
