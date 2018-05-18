@@ -3,20 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" sizes="16x16" href="{% static 'media/usv-ico.ico' %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); }
-
-
-
-
-
-
-
-
-
     </script>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
@@ -49,7 +41,7 @@
                 <a class="navbar-brand" href="#"><h1>Campus USV</h1></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav link-effect">
+                <ul class="nav navbar-nav link-effect custom-nav">
                     <li class="active"><a href="{% url 'web_page:home_page' %}">Home</a></li>
                     {% block add-nav %}
                     {% endblock %}
