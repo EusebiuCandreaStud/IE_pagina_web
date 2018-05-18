@@ -887,7 +887,7 @@ button.close {
     width: 25%;
     float: left;
 }
-.w3-left-contact {login
+.w3-left-contact {
     width: 50%;
     float: left;
 }
@@ -1165,7 +1165,8 @@ div#myNavbar {
     font-size: 1.2em;
 }
 .stylegridimg {
-    padding: 1em 0;style="color:red;"
+    padding: 1em 0;
+    style:"color:red;"
 }
 .search-grid button.btn1 {
     padding: 6px 12px;
@@ -1186,7 +1187,8 @@ div#myNavbar {
 .nav-links .navbar-nav>li>a {
     padding: 15px 15px;
 }
-.w3l-about-img {style="color:red;"
+.w3l-about-img {
+    style:"color:red";
     width: 100%;
     float: none;
     margin: 0 auto;
@@ -1217,3 +1219,4 @@ div#myNavbar {
 }
 }
 /*-- /responsive design --*/
+}

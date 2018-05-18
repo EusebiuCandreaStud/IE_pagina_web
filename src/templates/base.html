@@ -10,6 +10,13 @@
 		function hideURLbar(){ window.scrollTo(0,1); }
 
 
+
+
+
+
+
+
+
     </script>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
@@ -49,7 +56,12 @@
                     {% if user.is_authenticated %}
                     <li>
                         <a href="{% url 'web_page:user_profile' %}"><span class="glyphicon glyphicon-user"></span>
-                            {{ user.get_username }}</a>
+                            {% if user.first_name %}
+                            {{ user.first_name }}
+                            {% else %}
+                            {{user.email}}
+                            {% endif %}
+                        </a>
                     </li>
                     <li>
                         <a href="{% url 'web_page:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
