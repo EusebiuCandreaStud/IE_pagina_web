@@ -48,6 +48,11 @@
                                     <br/>
                                     <i class="glyphicon glyphicon-gift"></i> {{object.profile.birth_date|date:'d-m-Y' }}
                                 </p>
+                                <a href="{% url 'web_page:change_password' %}"
+                                   class="btn btn-primary a-btn-slide-text">
+                                    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                    <span><strong>Change password</strong></span>
+                                </a>
                             </div>
                             <div class="clearfix"></div>
                             <hr style="margin:5px 0 5px 0;">
