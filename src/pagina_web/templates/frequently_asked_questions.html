@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<!--<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 {% endblock %}
 
 {% block title %}Application{% endblock %}
@@ -38,8 +38,10 @@
                                 </form>
                                 {% if user.is_authenticated %}
                                 <hr>
-                                <a href="{% url 'web_page:add_faq'  category_pk %}">
-                                    <span class="label label-primary glyphicon glyphicon-plus"> Add</span>
+                                <a href="{% url 'web_page:add_faq'  category_pk %}"
+                                   class="btn btn-primary a-btn-slide-text">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <span><strong>Add</strong></span>
                                 </a>
                                 {% endif %}
                                 <hr>
@@ -87,7 +89,7 @@
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal">&times;
                                                     </button>
-                                                    <h4 class="modal-title">{{ obj.question }}</h4>
+                                                    <h4 class="modal-title">Delete</h4>
                                                 </div>
                                                 <div class="modal-body">
                                                     <p>Esti sigur ca doresti sa stergi aceasta intrebare ?</p>

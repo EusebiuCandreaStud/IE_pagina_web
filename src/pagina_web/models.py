@@ -104,6 +104,9 @@ class Profile(models.Model):
         address = '%s, %s' % (self.country, self.city)
         return address.strip()
 
+    def get_team_describe(self):
+        return '%s / %s / %s' % (self.faculty, self.specialization, self.year_of_study)
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
