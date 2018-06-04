@@ -152,7 +152,9 @@ class FrequentlyAskedQuestionsView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(FrequentlyAskedQuestionsView, self).get_context_data(**kwargs)
-        context['category_pk'] = self.kwargs.get('pk')
+        category_pk = self.kwargs.get('pk')
+        context['category_pk'] = category_pk
+        context['category'] = FaqCategory.objects.get(pk=category_pk)
         return context
 
 
